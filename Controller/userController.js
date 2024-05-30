@@ -11,7 +11,7 @@ export const signup = async (req, res) => {
       return res.status(400).json({status: "error"});
     }
 
-    const { username, image, email, password } = value;
+    const { username,  email, password } = value;
     // console.log(value);
 
     // Check username already exists
@@ -27,7 +27,7 @@ export const signup = async (req, res) => {
 
     const newUser = new User({
       username: username,
-      image:image,
+      // image:image,
       email: email,
       password: hashedPassword,
     });
