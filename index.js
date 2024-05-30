@@ -28,7 +28,10 @@ app.use('/api/users', productRouter);
 app.use('/api/admin', adminRouter);
 
 // Connect to MongoDB database
-mongoose.connect(process.env.DB)
+mongoose.connect(process.env.DB,{
+  useNewUrlParser: true, 
+    useUnifiedTopology: true
+})
   .then(() => console.log('DB connected'))
   .catch(error => console.log(error));
 
