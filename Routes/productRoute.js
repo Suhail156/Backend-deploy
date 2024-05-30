@@ -1,10 +1,11 @@
 import express from 'express'
-import {verifytoken } from '../middlewares/authMiddleware.js'
 import { productByCategory, productById, viewProduct } from '../Controller/productController.js'
 import { addCartQuantity, addToCart, decremntQuantity, removeCart, viewCart } from '../Controller/cartController.js'
 import { addToWishlist, removewishlist, viewWishlist } from '../Controller/wishlistController.js'
 import { orderDetails, payment, success } from '../Controller/userPaymentController.js'
 import TrycatchMiddleware from '../Middlewares/tryCatchMiddleware.js'
+import { verifytoken } from '../Middlewares/authMiddleware.js';
+
 
 const router=express.Router()
 //products 
@@ -15,7 +16,7 @@ router.get("/products/category/:categoryname",TrycatchMiddleware(productByCatego
 
 // router.use(verifytoken) 
 //cart  
-router.post("/:userid/cart/:productid",TrycatchMiddleware(addToCart))
+router.post("/:userid/cart/:productid",verifytoken,TrycatchMiddleware(addToCart))
 router.get("/:id/cart",TrycatchMiddleware(viewCart))   
 router.patch("/:userid/cart/:productid/increment",TrycatchMiddleware(addCartQuantity))
 router.patch("/:userid/cart/:productid/decrement",TrycatchMiddleware(decremntQuantity))
