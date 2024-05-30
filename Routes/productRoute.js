@@ -4,7 +4,7 @@ import { addCartQuantity, addToCart, decremntQuantity, removeCart, viewCart } fr
 import { addToWishlist, removewishlist, viewWishlist } from '../Controller/wishlistController.js'
 import { orderDetails, payment, success } from '../Controller/userPaymentController.js'
 import TrycatchMiddleware from '../Middlewares/tryCatchMiddleware.js'
-import { verifytoken } from '../Middlewares/authMiddleware.js';
+// import { verifytoken } from '../Middlewares/authMiddleware.js';
 
 
 
@@ -17,7 +17,7 @@ router.get("/products/category/:categoryname",TrycatchMiddleware(productByCatego
 
 // router.use(verifytoken) 
 //cart  
-router.post("/:userid/cart/:productid",verifytoken,TrycatchMiddleware(addToCart))
+router.post("/:userid/cart/:productid",TrycatchMiddleware(addToCart))
 router.get("/:id/cart",TrycatchMiddleware(viewCart))   
 router.patch("/:userid/cart/:productid/increment",TrycatchMiddleware(addCartQuantity))
 router.patch("/:userid/cart/:productid/decrement",TrycatchMiddleware(decremntQuantity))
