@@ -12,7 +12,7 @@ dotenv.config();
 
 // Create Express app
 const app = express();
-app.use(cors())
+// app.use(cors())
 app.use(cors({
   origin:"https://mern-stack-build-mart-nqt8.vercel.app",
   credentials:true
