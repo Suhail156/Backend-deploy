@@ -1,14 +1,22 @@
 import Products from "../Models/productSchema.js";
 
 
-export const viewProduct=async(req,res)=>{
-    const product=await Products.find()
-    // console.log(product);
-    if(!product){
-       return res.status(401).json({meassge:"unable to get products"})
-    }
-   return res.status(200).json({status:"success",message:"successfully fetched data",data:product})
-}
+export const viewProduct = async (req, res) => {
+  
+        const products = await Products.find();
+        
+        if (!products || products.length === 0) {
+            return res.status(404).json({ message: "No products found" });
+        }
+        
+        return res.status(200).json({
+            status: "success",
+            message: "Successfully fetched data",
+            data: products
+        });
+    
+};
+
 
 export const productById=async(req,res)=>{
    const productid=req.params.id
