@@ -13,7 +13,7 @@ export const viewProduct = async (req, res) => {
             status: "success",
             message: "Successfully fetched data",
             data: products
-        });
+        }); 
     
 };
 
