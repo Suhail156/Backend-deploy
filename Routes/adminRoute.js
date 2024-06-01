@@ -23,7 +23,7 @@ router.post("/createProducts",imageUpload,(createProducts))
 router.get("/:productid/product",TrycatchMiddleware(getByIdProduct))  
 router.get("/:categoryname/products",TrycatchMiddleware(productByCategory))
 router.get("/allproducts",TrycatchMiddleware(viewProducts))
-router.patch("/:id/update",imageUpload,adminUpdateProduct) 
+router.patch("/:id/update",imageUpload,(adminUpdateProduct)) 
 router.delete("/:productid/delete",TrycatchMiddleware(deleteProduct))
 
 //order
