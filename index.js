@@ -31,10 +31,11 @@ app.use('/api/admin', adminRouter);
 mongoose.connect(process.env.DB)
   .then(() => console.log('DB connected'))
   .catch(error => console.log(error));
-
+ 
 const PORT = process.env.PORT || 7000;
 
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+  
